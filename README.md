@@ -11,9 +11,8 @@ To get started with the app, clone the repo and then install the needed gems:
 ```
 $ bundle install --without production
 ```
-
+```
 $ yarn install
-
 ```
 Create config/master.key and copy this code into it:
 
