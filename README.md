@@ -1,24 +1,39 @@
-# README
+## Group 03 - IT3042 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Project in Ruby on Rails App 
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+Need install NodeJS, yarn, ruby 2.6.3, rails 6.0.1
 
-* System dependencies
+To get started with the app, clone the repo and then install the needed gems:
 
-* Configuration
+```
+$ bundle install --without production
+```
 
-* Database creation
+$ yarn install
 
-* Database initialization
+```
+Create config/master.key and copy this code into it:
 
-* How to run the test suite
+084fd46c026faf8fe9e6239e60fd9f0d
 
-* Services (job queues, cache servers, search engines, etc.)
+Next, migrate the database:
 
-* Deployment instructions
+```
+$ rails db:migrate
+```
 
-* ...
+Finally, run the test suite to verify that everything is working correctly:
+
+```
+$ rails test
+```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```
+$ rails server
+```
+
