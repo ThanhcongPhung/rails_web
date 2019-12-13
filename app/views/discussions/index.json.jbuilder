@@ -1,1 +1,1 @@
-json.array! @discussions, partial: "discussions/discussion", as: :discussion
+json.array! @discussions, partial: 'discussions/discussion', as: :discussion
