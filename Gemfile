@@ -42,7 +42,8 @@ gem 'cancancan', '~> 2.1', '>= 2.1.3'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
-
+gem 'bootstrap', '~> 4.3.1'
+gem 'redis'
 
 group :development, :test do
   gem 'dotenv-rails'

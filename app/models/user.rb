@@ -8,6 +8,10 @@ class User < ApplicationRecord
 
   has_many :discussions, dependent: :destroy
   has_many :channels, through: :discussions
+
+  validates :username, uniqueness: true, presence: true, length: {maximum: 50}
+
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create(provider: auth.provider, uid: auth.uid) do |user|
     user.email = auth.info.email
@@ -22,5 +26,9 @@ class User < ApplicationRecord
   end
   def email_required?
     false
- end
+  end
+  def gravatar_url
+    gravatar_id = Digest::MD5::hexdigest(email).downcase
+    "https://gravatar.com/avatar/#{gravatar_id}.png"
+  end
 end

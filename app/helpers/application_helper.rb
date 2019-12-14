@@ -28,4 +28,10 @@ module ApplicationHelper
     markdown_to_plain_text.render(text).html_safe
   end
 
+  def gravatar_url(user)
+    return user.image if user.image
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    url = "https://gravatar.com/avatar/#{gravatar_id}.png"
+  end
+
 end
