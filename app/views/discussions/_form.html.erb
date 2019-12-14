@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@discussion) do |f| %>
   <%= f.error_notification %>
 
@@ -17,6 +18,7 @@
     <label class="label">Channel</label>
     <div class="control has-icons-left">
       <span class="select">
+          
         <%= f.input_field :channel_id, collection:@channels.map { |c| [c.channel, c.id] }, prompt: "Select channel" %>
       </span>
       <span class="icon is-small is-left">

@@ -1,33 +1,35 @@
-<section class="section">
-	<div class="container">
-		<div class="columns is-centered">
-			<div class="column is-4">
-				<h2 class="title is-2">Log in</h2>
-				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<% content_for :devise_form do %>
+  <h2 class="heading text-4xl font-bold pt-4 mb-8">Log in</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-				  <div class="field">
-				  	<div class="control">
-				    	<%= f.input :email, required: false, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
-				    </div>
-				  </div>
+  <div class="mb-6">
+    <%= f.label :email, class:"label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+  </div>
 
-				  <div class="field">
-				  	<div class="control">
-				    <%= f.input :password, required: false, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
-						</div>
-					</div>
+  <div class="mb-6">
+    <%= f.label :password, class:"label" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+  </div>
 
-					<div class="field">
-				  	<div class="control">
-				    <%= f.input :remember_me, wrapper: false, as: :boolean if devise_mapping.rememberable? %>
-				  	</div>
-					</div>
+  <div class="mb-6 flex">
+    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me, class:"mr-2 leading-tight" %>
+      <%= f.label :remember_me, class:"block text-grey-darker" %>
+    <% end -%>
+  </div>
 
-				  <%= f.button :submit, "Log in", class:"button is-info is-medium" %>
-				<% end %>
-				<br/>
-				<%= render "devise/shared/links" %>
-			</div>
-		</div>
-	</div>
-</section>
+  <div class="mb-6">
+    <%= f.submit "Log in", class: "btn btn-default" %>
+  </div>
+  <div class="mb-6">
+    <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path, class: "btn bg-blue-500 text-white w-full block text-center" %>
+  </div>
+<% end %>
+
+<hr class="border mt-6" />
+
+<%= render "devise/shared/links" %>
+<% end %>
+
+<%= render "devise/shared/form_wrap" %>
