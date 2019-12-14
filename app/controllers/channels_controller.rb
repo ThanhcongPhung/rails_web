@@ -11,8 +11,8 @@ class ChannelsController < ApplicationController
   # GET /channels/1
   # GET /channels/1.json
   def show
-    @discussions = Discussion.where('channel_id = ?',@channel.id)
-    @channel = Channel.all
+    @discussions = Discussion.where('channel_id = ?', @channel.id)
+    @channels = Channel.all
   end
 
   # GET /channels/new
@@ -26,7 +26,7 @@ class ChannelsController < ApplicationController
 
   # POST /channels
   # POST /channels.json
-  def create
+   def create
     @channel = Channel.new(channel_params)
 
     respond_to do |format|
