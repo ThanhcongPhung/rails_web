@@ -4,7 +4,16 @@ This project for IT3402
 
 ## Getting started
 
-To get started with the app, clone the repo and then install the needed gems:
+Install redis to run server:
+```
+$ sudo apt update
+$ sudo apt install redis-server
+```
+Run redis when rails server run:
+```
+$ redis-cli
+```
+Then install the needed gems:
 
 ```
 $ bundle install 
