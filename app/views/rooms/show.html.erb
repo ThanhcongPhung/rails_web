@@ -15,6 +15,7 @@
             <div class="col-auto text-center">
               <img src="<%= room_message.user.gravatar_url %>" class="avatar" alt="">
             </div>
+
             <div class="col">
               <div class="message-content">
                 <p class="mb-1">
@@ -32,13 +33,15 @@
         </div>
       <% end %>
     </div>
+
     <%= simple_form_for @room_message, remote: true do |form| %>
       <div class="input-group mb-3">
         <%= form.input :message, as: :string,
                                  wrapper: false,
                                  label: false,
                                  input_html: {
-                                   class: 'chat-input'
+                                   class: 'chat-input',
+                                   autocomplete: 'off'
                                  } %>
         <div class="input-group-append">
           <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
@@ -49,6 +52,7 @@
     <% end %>
   </div>
 </div>
+
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
