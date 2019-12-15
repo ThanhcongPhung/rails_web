@@ -1,4 +1,5 @@
-class User < ApplicationRecord
+class User < ApplicationRecord 
+  mount_uploader :avatar, AvatarUploader
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -9,7 +10,17 @@ class User < ApplicationRecord
   has_many :discussions, dependent: :destroy
   has_many :channels, through: :discussions
 
+  has_one_attached  :avatar
   validates :username, uniqueness: true, presence: true, length: {maximum: 50}
+
+
+
+  validates_presence_of   :avatar
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
+  validates_presence_of   :avatar
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -26,7 +37,7 @@ class User < ApplicationRecord
     user.password = Devise.friendly_token[0, 20]
     user.name = auth.info.name # assuming the user model has a name
     user.username = auth.info.name# assuming the user model has a username
-    #user.image = auth.info.image # assuming the user model has an image
+    user.image = auth.info.image # assuming the user model has an image
     # If you are using confirmable and the provider(s) you use validate emails,
     # uncomment the line below to skip the confirmation emails.
     # user.skip_confirmation!
@@ -36,8 +47,12 @@ class User < ApplicationRecord
   def email_required?
     false
   end
-  # def gravatar_url
-  #   gravatar_id = Digest::MD5::hexdigest(email).downcase
-  #   "https://gravatar.com/avatar/#{gravatar_id}.png"
-  # end
+  def gravatar_url
+    if image!=""
+      image
+    else
+      gravatar_id = Digest::MD5::hexdigest(email).downcase
+      "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
+    end
+  end
 end
