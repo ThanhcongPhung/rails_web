@@ -1,3 +1,4 @@
+
 <h1>
   <%= @room.name %>
 </h1>
@@ -38,7 +39,7 @@
                                  wrapper: false,
                                  label: false,
                                  input_html: {
-                                   class: 'chat-input'
+                                   class: 'chat-input chat-text'
                                  } %>
         <div class="input-group-append">
           <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
@@ -49,7 +50,7 @@
     <% end %>
   </div>
 </div>
-<div class="d-none" data-role="message-template">
+<div class="d-none hidden" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
       <div class="col-auto text-center">
