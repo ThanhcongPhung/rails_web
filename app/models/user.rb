@@ -48,11 +48,11 @@ class User < ApplicationRecord
     false
   end
   def gravatar_url
-    if image!=""
-      image
-    else
+    # if image!=""
+    #   image
+    # else
       gravatar_id = Digest::MD5::hexdigest(email).downcase
       "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
-    end
+    # end
   end
 end
