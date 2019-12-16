@@ -44,7 +44,8 @@ gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 gem 'bootstrap', '~> 4.3.1'
 gem 'redis'
-
+gem 'jquery-ui-rails'
+gem 'ransack', '~> 2.3'
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :discussions do
     resources :replies
   end
-
+  get :search, controller: :discussions
   root 'discussions#index'
   
   devise_for :users,

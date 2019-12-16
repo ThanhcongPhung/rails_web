@@ -3,12 +3,21 @@ class DiscussionsController < ApplicationController
   before_action :find_channels, only: [:index, :show, :new, :edit]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def search
+    @discussions = Discussion.ransack(title_cont: params[:q]).result(distinct: true)
+    respond_to do |format|
+      format.html {}
+      format.json{
+        @discussions=@discussions.limit(5)
+      }
+    end
+  end
   # GET /discussions
   # GET /discussions.json
   def index
     @discussions = Discussion.all.order('created_at desc')
   end
-
+  
   # GET /discussions/1
   # GET /discussions/1.json
   def show
