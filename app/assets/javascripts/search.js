@@ -1,26 +1,42 @@
 document.addEventListener("turbolinks:load",function(){
-    $input=$("[data-behaviour='autocomplete]")
-    var options= {
-        getValue: "title",
+    input= $( ".search" )
+    var options = []
+  
+    
+    options = {
+
         url: function(phrase){
             return "/search.json?q="+phrase;
         },
-        categories:[
-            {
-                listLocation: "disscussions",
-                header: "<strong>Discussions</strong>",
-            }
-
+        categories: [{
+            listLocation: "discussions",
+            // maxNumberOfElements: 4,
+            // header: "Marvel - heroes"
+            header: "<strong>Discussions</strong>"
+        }, 
         ],
+        
+        getValue: function(elements) {
+            console.log(elements.title)
+            return elements.title
+        },
         list:{
             onChooseEvent: function(){
-                var url=$input.getSelectedItemData().url
-                console.log(url)
-                // $input.val("")
-                // Tuborlinks.visit(url) 
-
+            var url=input.getSelectedItemData().url
+            console.log(url)
+            input.val("")
+            Tuborlinks.visit(url) 
+        
             }
         }
+        
     }
-    $input.easyAutocomplete(options);
+    
+ 
+      
+    // console.log(input)
+    // console.log(options)
+    // input.css("background-color", "yellow");
+    // $( ".search" ).css( "border", "3px solid red" );
+    $( ".search" ).easyAutocomplete(options);
 })
