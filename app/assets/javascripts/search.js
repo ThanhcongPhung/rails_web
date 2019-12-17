@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load",function(){
+document.addEventListener('turbolinks:load',function(){
     input= $( ".search" )
     var options = []
   
@@ -25,7 +25,7 @@ document.addEventListener("turbolinks:load",function(){
             var url=input.getSelectedItemData().url
             console.log(url)
             input.val("")
-            Tuborlinks.visit(url) 
+            Turbolinks.visit(url) 
         
             }
         }

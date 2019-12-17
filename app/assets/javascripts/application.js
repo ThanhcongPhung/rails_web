@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require popper
+//= require jquery.turbolinks
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
 //= require jquery-ui
+//= require turbolinks-compatibility
 //= require_tree .
-//= require jquery.turbolinks
