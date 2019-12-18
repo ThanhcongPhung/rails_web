@@ -1,0 +1,27 @@
+
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+cloudinary:
+  service: Cloudinary
+  cloud_name: "railsapp"
+  api_key: "794866598243935"
+  api_secret: "XRTz7mdwf_u9Nhb4tvn0cpuHVks"
+  secure: true
+  cdn_subdomain: true
+# amazon:
+# service: S3
+# access_key_id: "52634587467"
+# secret_access_key: "hqwjkshwdhewjk"
+# amazon:
+#   service: S3
+#   access_key_id: "52634587467"
+#   secret_access_key: "hqwjkshwdhewjk"
+  # bucket: ""
+  # region: "" # e.g. 'us-east-1'
+

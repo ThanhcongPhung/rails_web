@@ -81,3 +81,6 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'sprockets-rails', '~> 3.2.1'
 gem 'jquery-turbolinks', '~> 2.1'
+gem 'aws-sdk-s3'
+gem 'cloudinary', require: false
+gem 'activestorage-cloudinary-service' 

@@ -1,0 +1,9 @@
+
+
+# production:
+#   cloud_name: "railsapp"
+#   api_key: "794866598243935"
+#   api_secret: "XRTz7mdwf_u9Nhb4tvn0cpuHVks"
+#   secure: true
+#   cdn_subdomain: true
+
