@@ -20,3 +20,7 @@
 //= require turbolinks-compatibility
 //= require_tree .
 //= require activestorage
+$("#submit").on("click", function()
+{
+	$('#new_reply').trigger("reset");
+});

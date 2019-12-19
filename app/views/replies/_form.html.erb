@@ -6,12 +6,12 @@
   </div>
 </div>
 <div class="field">
-  <div class="control">
+  <div class="control" id="file">
   	<%= f.label :image%>
-  	<%= f.file_field :image,direct_upload: true %>
+  	<%= f.file_field :image,direct_upload: true,id: 'img' %>
   </div>
 </div>
 
-<%= f.button :submit, 'Leave a reply', class:'button is-info' %>
+<%= f.button :submit, 'Leave a reply', class:'button is-info',id: "submit" %>
 
 <% end %>
