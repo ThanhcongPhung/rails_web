@@ -12,7 +12,7 @@
           <br/>
           <%= markdown(reply.reply) %>
           <% if reply.image.attached? %>
-          <%= image_tag reply.image %>
+          <%= cl_image_tag(reply.image.key, height: 100, width: 100, gravity: :face, crop: :thumb, sign_url: true) %>
           <% end %>
         </p>
       </div>

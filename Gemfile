@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -82,5 +82,4 @@ gem 'fog-aws'
 gem 'sprockets-rails', '~> 3.2.1'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'aws-sdk-s3'
-gem 'cloudinary', require: false
-gem 'activestorage-cloudinary-service' 
+gem 'cloudinary','~>1.13.1'

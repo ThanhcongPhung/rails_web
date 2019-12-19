@@ -5,7 +5,8 @@ class RepliesController < ApplicationController
 
 
   def create
-    @reply = @discussion.replies.create(params[:reply].permit(:reply, :discussion_id,:image))
+    
+    @reply = @discussion.replies.create(params.require(:reply).permit(:reply,:image,:discussion_id))
     @reply.user_id = current_user.id
 
     respond_to do |format|
