@@ -3,8 +3,10 @@ class RepliesController < ApplicationController
   before_action :set_reply, only: [:edit, :update, :show, :destroy]
   before_action :set_discussion, only: [:create, :edit, :show, :update, :destroy]
 
+
   def create
-    @reply = @discussion.replies.create(params[:reply].permit(:reply, :discussion_id))
+    
+    @reply = @discussion.replies.create(params.require(:reply).permit(:reply,:image,:discussion_id))
     @reply.user_id = current_user.id
 
     respond_to do |format|
@@ -59,6 +61,6 @@ class RepliesController < ApplicationController
   end
 
   def reply_params
-    params.require(:reply).permit(:reply)
+    params.require(:reply).permit(:reply,:image)
   end
 end

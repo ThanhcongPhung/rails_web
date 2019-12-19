@@ -1,0 +1,19 @@
+
+development:
+  cloud_name: railsapp
+  api_key: '794866598243935'
+  api_secret: XRTz7mdwf_u9Nhb4tvn0cpuHVks
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: railsapp
+  api_key: '794866598243935'
+  api_secret: XRTz7mdwf_u9Nhb4tvn0cpuHVks
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: railsapp
+  api_key: '794866598243935'
+  api_secret: XRTz7mdwf_u9Nhb4tvn0cpuHVks
+  enhance_image_tag: true
+  static_file_support: false

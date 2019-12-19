@@ -19,3 +19,4 @@
 //= require jquery-ui
 //= require turbolinks-compatibility
 //= require_tree .
+//= require activestorage
