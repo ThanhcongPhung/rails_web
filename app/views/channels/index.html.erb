@@ -9,15 +9,19 @@
   </div>
   <hr>
 
-  <table class="table table-striped">
+  <table class="table">
     <tbody>
       <% @channels.each do |channel| %>
       <tr>
         <td><%= link_to channel.channel, channel %></td>
         <td>
-          <div class="buttons is-right">
-            <%= link_to 'Edit Channel', edit_channel_path(channel), class:'button' %>
-            <%= link_to 'Delete', channel, class:'button is-danger', method: :delete, data: { confirm: "Are you sure you want to delete this channel? " } %>
+          <div class="action">         
+            <%= link_to edit_channel_path(channel), class:"button-edit" do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end  %>           
+            <%= link_to channel, class:'button-delete', method: :delete, data: { confirm: "Are you sure you want to delete this channel? " } do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>     
+            <% end  %>       
           </div>
         </td>
       </tr>

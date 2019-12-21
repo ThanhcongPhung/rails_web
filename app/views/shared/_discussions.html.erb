@@ -3,13 +3,13 @@
   <div class="discussions">
     <% @discussions.each do |discussion| %>
       <div class="columns bb-not-last pv10">
-        <div class="column is-1">
-          <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %>
-        </div>
-        <div class="column is-11">
-          <%= link_to discussion do %>
-            <h3 class="title is-5"><%= discussion.title %></h3>
-          <% end %>
+        <div class="column is-12">
+          <div class="topic-discussion">
+            <%= gravatar_image_tag(discussion.user.email, class:'avatar', alt: discussion.user.username) %>
+            <%= link_to discussion do %>
+              <span class="title is-5"><%= discussion.title %></span>
+            <% end %>
+          </div>
           <div class="content-topic">
             <%= truncate(strip_markdown(discussion.content), length: 140) %>
             <p><em><small>Posted <%= time_ago_in_words(discussion.created_at) %> ago in
@@ -26,7 +26,7 @@
             <%= link_to edit_discussion_path(discussion), class:"action" do %>
               <span class="action text-success">Edit</span>
             <% end  %>
-            <%= link_to discussion, method: :delete, data: { confirm: 'Are you sure?' }, class:"name" do %>
+            <%= link_to discussion, method: :delete, data: { confirm: 'Are you sure?' }, class:"action" do %>
               <span class="action text-danger">Delete</span>
             <% end  %>
           </div>

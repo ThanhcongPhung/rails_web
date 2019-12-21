@@ -1,14 +1,16 @@
-<div class="level">
+<div class="channel-info">
   <div class="level-left">
   <h1 class="title is-2"><%= @channel.channel %></h1>
   </div>
-  <div class="level-right">
+  <div>
   <% if has_role?(:admin) %>
-    <%= link_to 'Edit Channel', edit_channel_path(@channel), class:"button" %>
+
+    <%= link_to edit_channel_path(@channel), class:"action" do %>
+      <em class="action text-success">Edit</em>
+    <% end %>
   <% end %>
   </div>
 </div>
-<hr />
 
 <div class="columns">
  <%= render 'shared/discussions' %>
