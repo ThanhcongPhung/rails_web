@@ -2,17 +2,17 @@
 <% if @rooms.present? %>
 <nav class="nav flex-column">
 <div>
-<h3 style="color: gray;">Rooms</h3>
+<p class="title-topic">Rooms</p><hr>
   </div>
-  <div class="room_wrapper">
+  <ul class="list">
     <% @rooms.each do |room| %>
-    <%= link_to room.name, room_path(room), class: 'nav-link room-nav-link' %>
+    <li><%= link_to room.name, room_path(room) %></li>
     <% end %>
-  </div>
+  </ul>
 </nav>
 <% else %>
   <div class="text-muted">
-  The are no rooms
+  There are no rooms
   </div>
   <% end %>
   <div class="mb-3">
