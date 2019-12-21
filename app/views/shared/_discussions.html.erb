@@ -5,7 +5,8 @@
       <div class="columns bb-not-last pv10">
         <div class="column is-12">
           <div class="topic-discussion">
-            <img class="avatar" src="<%= gravatar_url(current_user) %>">
+                    <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %>
+
             <%= link_to discussion do %>
               <span class="title is-5"><%= discussion.title %></span>
             <% end %>

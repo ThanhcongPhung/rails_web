@@ -1,7 +1,8 @@
 <div class="box">
   <article class="column is-12">
     <div class="media-left">
-      <img class="avatar" src="<%= gravatar_url(current_user) %>">
+            <%= gravatar_image_tag(reply.user.email, class: 'border-radius-50', size: 48, alt: reply.user.username) %>
+
     </div>
     <div class="media-content">
       <div class="content">
