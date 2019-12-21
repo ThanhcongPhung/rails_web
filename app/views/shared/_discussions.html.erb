@@ -1,17 +1,16 @@
-<div class="column is-8">
-   
-  <h3 class="title is-5 has-text-grey-light">Latest Discussions</h3>
+<div class="column is-8">   
+  <p class="title-topic">Topics</p><hr>
   <div class="discussions">
     <% @discussions.each do |discussion| %>
       <div class="columns bb-not-last pv10">
         <div class="column is-1">
           <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %>
         </div>
-        <div class="column is-8">
+        <div class="column is-11">
           <%= link_to discussion do %>
             <h3 class="title is-5"><%= discussion.title %></h3>
           <% end %>
-          <div class="content">
+          <div class="content-topic">
             <%= truncate(strip_markdown(discussion.content), length: 140) %>
             <p><em><small>Posted <%= time_ago_in_words(discussion.created_at) %> ago in
               <% if discussion.channel %>
@@ -22,14 +21,19 @@
               </em>
             </p>
           </div>
+          <% if discussion_author(discussion) || has_role?(:admin) %>
+          <div>
+            <%= link_to edit_discussion_path(discussion), class:"action" do %>
+              <span class="action text-success">Edit</span>
+            <% end  %>
+            <%= link_to discussion, method: :delete, data: { confirm: 'Are you sure?' }, class:"name" do %>
+              <span class="action text-danger">Delete</span>
+            <% end  %>
+          </div>
+          <% end %>
         </div>
 
-        <% if discussion_author(discussion) || has_role?(:admin) %>
-        <div class="column has-text-right">
-          <%= link_to 'Edit', edit_discussion_path(discussion), class:'button' %>
-          <%= link_to 'Delete', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
-        </div>
-        <% end %>
+
 
       </div>
     <% end %>

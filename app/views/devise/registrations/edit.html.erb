@@ -1,7 +1,7 @@
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-4">
+      <div class="column is-7">
 
       <h2 class="title is-2">Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -17,7 +17,7 @@
 
           <div class="row username-img">
             <div class="col-sm-3 text-right">
-              <%= image_tag gravatar_url(@user), width: '52', height: '52', class: "round-img" %>
+              <%= image_tag gravatar_url(@user), width: '52', height: '52', class: "rounded-circle" %>
             </div>
             <div class="col-sm-9">
               <p><%= @user.name %></p>
