@@ -1,58 +1,68 @@
-<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+<div class="header">
+  <nav class="navbar navbar-expand-lg" role="navigation" aria-label="main navigation">
+    <div class="home">
+      <i class="fa fa-forumbee" aria-hidden="true"></i>
       <div class="navbar-brand">
-        <%= link_to root_path, class:"navbar-item" do %>
-          <h1 class="title is-5">Discussions</h1>
+        <%= link_to root_path, class:"name" do %>
+          <p class="name">Discussions</p>
         <% end  %>
-      <div class="navbar-burger burger" data-target="navbar">
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
-    </div>
+    </div
 
+    <div class="search">
       <div id="navbar" class="navbar-menu">
         <div class="navbar-end">
         <%# <div class = "search_bar"> %>
         <%= form_with url: search_path,local:true,method: :get,html:{class: "form-inline my-2 my-lg-0"} do |form|%>
           <%= form.text_field :q, placeholder:"Search",data:{behavior:"autocomplete"},class:"form-control mr-sm-2 search"%>
-          <%= form.button "Search",class:"btn btn-outline-success my-2 my-sm-0"%>
         <%end%>
         <%# </div> %>
           <% if user_signed_in? %>
           <div class="navbar-item">
             <div class="field is-grouped">
-              <%= link_to 'New Discussion', new_discussion_path, class:"button is-info" %>
+              <%= link_to 'New Discussion', new_discussion_path, class:"button create" %>
             </div>
           </div>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>
-            <div class="navbar-dropdown is-right">
-              <%= link_to "Room chat", rooms_path, class: "button is-light"%>
-              <!--  -->
-              <%= link_to current_user.username, edit_user_registration_path, class:"navbar-item" %>
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"navbar-item" %>
-            </div>
-          </div>
-         <% else %>
-         <div class="navbar-item">
-          <div class="field is-grouped">
 
-            <p class="control">
-              <%= link_to 'New Discussion', new_discussion_path, class:"button is-info" %>
-            </p>
+          <div class="collapse navbar-collapse" id="navbar-list-4">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown is-right">  
+              <%= link_to edit_user_registration_path do %>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                </a>
+              <% end  %>         
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Room chat", rooms_path, class: "dropdown-item"%>
+                  <%= link_to current_user.username, edit_user_registration_path, class:"dropdown-item" %>
+                  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                </div>
+              </li>   
+            </ul>
+        </div>
+          
+        <% else %>
+        <div class="navbar-item">
+          <div class="log">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <%= link_to 'New Discussion', new_discussion_path, class:"button is-info" %>
+              </li>
 
-            <p class="control">
-              <%= link_to "Sign In", new_user_session_path, class: "button is-light"%>
-            </p>
+              <li class="nav-item active">
+                <%= link_to "Sign In", new_user_session_path, class: "button is-light"%>
+              </li>
 
-            <p class="control">
-              <%= link_to "Sign up", new_user_registration_path, class: "button is-light" %>
-            </p>
-            
+              <li class="nav-item active">
+                <%= link_to "Sign Up", new_user_registration_path, class: "button is-light" %>
+              </li>
+            </ul>              
           </div>
-          </div>
-          <% end %>
+        </div>
+        <% end %>
 
         </div>
-    </div>
+      </div>
+    </div
   </nav>
+</div>
