@@ -29,7 +29,7 @@
               <li class="nav-item dropdown is-right">  
               <%= link_to edit_user_registration_path do %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                  <img src="<%= gravatar_url(current_user) %>" width="40" height="40" class="avatar"">
                 </a>
               <% end  %>         
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -63,6 +63,7 @@
 
         </div>
       </div>
-    </div
+    </div>
+    </div>
   </nav>
 </div>

@@ -1,25 +1,36 @@
-<div class="row">
-  <div class="row">
-    <h1>Discussionssss</h1>
+<div class="channel-content">   
+  <p class="title-topic">Discussions</p><hr>
+  <div class="discussions">
     <% @discussions.each do |discussion| %>
-      <div class="column is-8">
-        <h1 class="title is-2 has-text-grey discussion-title"><%= link_to discussion.title,discussion%></h1>
-        <h3 class="subtitle is-5 has-text-grey-lighter">by <%= discussion.user.username %> in <%= link_to discussion.channel.channel, discussion.channel %></h3>
-    <div class="level">
-      <div class="level-left"></div>
-      <div class="level-right">
-        <% if discussion_author(discussion) %>
-        <div class="buttons">
-            <%= link_to 'Edit Discussion', edit_discussion_path(discussion), class:'button'%>
-            <%= link_to 'Delete', discussion_path(discussion), method: :delete, data: { confirm: "Delete discussion?" }, class:'button' %>
+      <div class="columns bb-not-last pv10">
+        <div class="column is-12">
+          <div class="topic-discussion">
+            <%= link_to discussion do %>
+              <span class="title is-5"><%= discussion.title %></span>
+            <% end %>
+          </div>
+          <div class="content-topic">
+            <%= truncate(strip_markdown(discussion.content), length: 140) %>
+            <p><small><em>
+              by <%= discussion.user.username %> in
+              <% if discussion.channel %>
+                <%= link_to discussion.channel.channel, discussion.channel %>
+              <% end %>
+              </em></small>
+            </p>
+          </div>
+          <% if discussion_author(discussion) || has_role?(:admin) %>
+          <div>
+            <%= link_to edit_discussion_path(discussion), class:"action" do %>
+              <i class="fa fa-pencil text-success" aria-hidden="true"></i>
+            <% end  %>
+            <%= link_to discussion, method: :delete, data: { confirm: 'Are you sure?' }, class:"action" do %>
+              <i class="fa fa-trash-o text-danger" aria-hidden="true"></i>     
+            <% end  %>
+          </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
-    </div>
-    <div class="content"><%= markdown(discussion.content) %></div>
-
-
-  </div>
-    </div>
     <% end %>
   </div>
+</div>

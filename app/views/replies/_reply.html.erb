@@ -1,20 +1,18 @@
 <div class="box">
-  <article class="media">
+  <article class="column is-12">
     <div class="media-left">
-      <figure class="image is-48x48">
-        <%= gravatar_image_tag(reply.user.email, class: 'border-radius-50', size: 48, alt: reply.user.username) %>
-      </figure>
+      <img class="avatar" src="<%= gravatar_url(current_user) %>">
     </div>
     <div class="media-content">
       <div class="content">
-        <p>
+        <span>
           <strong><%= reply.user.username %></strong> <small><%= time_ago_in_words(reply.created_at) %></small>
           <br/>
           <%= markdown(reply.reply) %>
           <% if reply.image.attached? %>
           <%= cl_image_tag(reply.image.key, height: 100, width: 100, gravity: :face, crop: :thumb, sign_url: true) %>
           <% end %>
-        </p>
+        </span>
       </div>
       
       <% if reply_author(reply) || has_role?(:admin) %>

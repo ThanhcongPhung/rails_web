@@ -5,7 +5,7 @@
       <div class="columns bb-not-last pv10">
         <div class="column is-12">
           <div class="topic-discussion">
-            <%= gravatar_image_tag(discussion.user.email, class:'avatar', alt: discussion.user.username) %>
+            <img class="avatar" src="<%= gravatar_url(current_user) %>">
             <%= link_to discussion do %>
               <span class="title is-5"><%= discussion.title %></span>
             <% end %>
@@ -24,17 +24,14 @@
           <% if discussion_author(discussion) || has_role?(:admin) %>
           <div>
             <%= link_to edit_discussion_path(discussion), class:"action" do %>
-              <span class="action text-success">Edit</span>
+              <i class="fa fa-pencil text-success" aria-hidden="true"></i>
             <% end  %>
             <%= link_to discussion, method: :delete, data: { confirm: 'Are you sure?' }, class:"action" do %>
-              <span class="action text-danger">Delete</span>
+              <i class="fa fa-trash-o text-danger" aria-hidden="true"></i>     
             <% end  %>
           </div>
           <% end %>
         </div>
-
-
-
       </div>
     <% end %>
   </div>

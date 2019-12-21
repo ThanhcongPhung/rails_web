@@ -143,7 +143,7 @@ $sizes: (); // <-- Fix here
 }
 
 .action {
-  margin-right: 2px;
+  margin-right: 5px;
 }
 
 .action:hover {
@@ -158,6 +158,15 @@ $sizes: (); // <-- Fix here
 
     td {
       vertical-align: middle;
+
+      .action-channel {
+        float: right;
+
+        i {
+          font-size: 25px;
+          margin-right: 10px;
+        }
+      }
     }
   }
 }
