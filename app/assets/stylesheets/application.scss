@@ -117,6 +117,34 @@ $sizes: (); // <-- Fix here
   outline: none;
 }
 
+.save {
+  background-color: #eaf5fd;
+  color: #1da1f2;
+  border: none;
+  font-weight: bold;
+}
+
+.save:hover {
+  background-color: #1da1f2;
+  color: #eaf5fd;
+  border: none;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.save:focus {
+  border-color: #1da1f2;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #71c9f8;
+  outline: none;
+}
+
+.save:active {
+  background-color: #006dbf;
+  border-color: #006dbf;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1da1f2;
+  outline: none;
+}
+
 .log {
   li {
     margin-right: 10px;
@@ -169,6 +197,14 @@ $sizes: (); // <-- Fix here
       }
     }
   }
+}
+
+.easy-autocomplete-container {
+  left: -7px;
+  position: absolute;
+  width: 99%;
+  z-index: 2;
+  margin-top: 36px;
 }
 
 .channel-content {

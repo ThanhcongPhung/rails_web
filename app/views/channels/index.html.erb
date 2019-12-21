@@ -1,12 +1,12 @@
 <div class="channel-content">
   <p class="title-topic-channel">Channels</p>
   <% if has_role?(:admin) %>
-  <div class="level">
+  <div style="float: right;">
     <div class="level-right">
       <%= link_to 'New Channel', new_channel_path, style: 'float:right;', class:'button create' %>
     </div>
   </div>
-  <hr>
+  <hr style="clear: both;">
 
   <table class="table">
     <tbody>
